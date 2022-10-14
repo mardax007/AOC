@@ -1,4 +1,5 @@
 export default function solution(input:string) {
-	const floor = input.match(/\(/g)!.length - input.match(/\)/g)!.length
-	return floor
+    const directions = input.split("")
+
+    return directions.length - directions.filter(d => d === ")").length
 }

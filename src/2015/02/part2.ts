@@ -1,13 +1,14 @@
 export default function solution(input:string) {
-	const gifts = input.split("\n").map(v => v.split("x").map(v => +v));
-	let total = 0
+	const dimensions = (input.split("\n").map(v => v.split("x")) as any) as Array<Array<number>>;
+	let totalfeet = 0
 
-	for(const gift of gifts){
-		const [L, W, H] = gift;
-		const smallestAreas = [L, W, H].sort((a,b)=>a-b).slice(0,2).reduce((a, b) => a + b, 0) * 2;
-		const volume = L*W*H;
-		total += smallestAreas+volume;
+	for(const dimension of dimensions){
+		const [L, W, H] = dimension;
+
+        dimension.sort((a,b) => a-b);
+
+        totalfeet += 2 * dimension[0] + 2 * dimension[1] + (L * W * H);
 	}
 
-	return total;
+	return totalfeet;
 }

@@ -1,14 +1,13 @@
 export default function solution(input:string) {
-	const splitted = input.split("");
-	
-	let floor = 0;
-	let pos = 0;
+    const directions = input.split("")
 
-	for(let c of splitted){
-		floor += c === "(" ? 1 : -1;
-		pos++;
-		if(floor === -1) break;
-	}
+    let level = 0;
+    
+    for (let i = 0; i < directions.length; i++) {
+        level += directions[i] === "(" ? 1 : -1;
 
-	return pos;
+        if (level < 0) {
+            return i + 1;
+        }
+    }
 }

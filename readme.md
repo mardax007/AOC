@@ -1,6 +1,6 @@
 # Advent of Code
 
-Temp readme!
+Template by Maurits Wilke
 
 ## How to use
 1. run `tsx tsc` in a terminal
