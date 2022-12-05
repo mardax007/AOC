@@ -15,7 +15,7 @@ export default function solution(input: string) {
 	function moveCargo(crates: number, origin: number, position: number) {
 		const cratesMoved = []
 		for (let i = 0; i < crates; i++) {
-			cratesMoved[crates - 1 - i] = cargo[origin][cargo[origin].length - 1]
+			cratesMoved[i] = cargo[origin][cargo[origin].length - 1]
 			cargo[origin].splice(cargo[origin].length - 1)
 		}
 
