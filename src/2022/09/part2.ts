@@ -12,8 +12,11 @@ export default function solution(input: string) {
                 let dy = pos[k][1] - pos[k + 1][1];
 				const xPosChange = () => pos[k + 1][0] += dx > 0 ? 1 : -1;
 				const yPosChange = () => pos[k + 1][1] += dy > 0 ? 1 : -1;
-                if (Math.abs(dx) > 1) { xPosChange(); (dy != 0) ?? yPosChange(); }
-				else if (Math.abs(dy) > 1) { yPosChange(); (dx != 0) ?? xPosChange(); }
+                if (Math.abs(dx) > 1) {
+                    xPosChange(); if (dy != 0) yPosChange();
+                } else if (Math.abs(dy) > 1) {
+                    yPosChange(); if (dx != 0) xPosChange();
+                }
             }
 			visited.add(pos[n][0] + ":" + pos[n][1]);
         }
